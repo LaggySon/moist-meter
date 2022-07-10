@@ -30,7 +30,6 @@ export default function Home({ initialRatings }) {
       } else {
         console.log("Rating added successfully");
         setRatings([body, ...ratings]);
-        e.target.reset();
         //set a success banner here
       }
       //check response, if success is false, dont take them to success page
@@ -92,18 +91,6 @@ export default function Home({ initialRatings }) {
 //Get ratings from prisma (database)
 export async function getServerSideProps() {
   const ratings = await prisma.rating.findMany({});
-
-  function compare(a, b) {
-    if (a.name < b.name) {
-      return -1;
-    }
-    if (a.name > b.name) {
-      return 1;
-    }
-    return 0;
-  }
-
-  ratings.sort(compare);
   // console.log(ratings);
   return {
     props: {
