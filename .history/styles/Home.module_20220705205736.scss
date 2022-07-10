@@ -1,0 +1,15 @@
+.rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 2px solid black;
+  margin: 1rem;
+  flex-shrink: 1;
+}
+
+.ratingBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

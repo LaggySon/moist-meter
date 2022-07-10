@@ -1,0 +1,27 @@
+.inputForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.ratingBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  .rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    text-align: center;
+    border: 2px solid black;
+    margin: 1rem;
+    flex-shrink: 1;
+    flex-basis: 15rem;
+    border-radius: 0.2rem;
+    box-shadow: 0.2rem 0.2rem cyan;
+  }
+}
