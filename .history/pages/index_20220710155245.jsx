@@ -8,7 +8,7 @@ import Link from "next/link";
 
 export default function Home({ initialRatings }) {
   const [ratings, setRatings] = useState(initialRatings);
-  let count = initialRatings.length;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const name = e.target.elements.name.value;
@@ -31,7 +31,6 @@ export default function Home({ initialRatings }) {
         console.log("Rating added successfully");
         setRatings([body, ...ratings]);
         e.target.reset();
-        count++;
         //set a success banner here
       }
       //check response, if success is false, dont take them to success page
@@ -43,7 +42,6 @@ export default function Home({ initialRatings }) {
   return (
     <div>
       <div className={styles.inputForm}>
-        <div className={styles.count}>Meters Created: {count}</div>
         <form action="#" method="POST" onSubmit={(e) => handleSubmit(e)}>
           <label>
             Name:
