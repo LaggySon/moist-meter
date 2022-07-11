@@ -56,32 +56,36 @@ export default function Home({ initialRatings }) {
           <div>
             signed in <button onClick={() => signOut()}>Sign Out</button>
           </div>
-          <div className={styles.inputForm}>
-            <div className={styles.count}>Meters Created: {ratings.length}</div>
-            <form action="#" method="POST" onSubmit={(e) => handleSubmit(e)}>
-              <label>
-                Name:
-                <input type="text" name="name" id="name" />
-              </label>
+          {session.user.role === "Admin" && (
+            <div className={styles.inputForm}>
+              <div className={styles.count}>
+                Meters Created: {ratings.length}
+              </div>
+              <form action="#" method="POST" onSubmit={(e) => handleSubmit(e)}>
+                <label>
+                  Name:
+                  <input type="text" name="name" id="name" />
+                </label>
 
-              <label>
-                Category:
-                <input type="text" name="category" id="category" />
-              </label>
+                <label>
+                  Category:
+                  <input type="text" name="category" id="category" />
+                </label>
 
-              <label>
-                Rating:
-                <input type="number" name="rating" id="rating" />
-              </label>
+                <label>
+                  Rating:
+                  <input type="number" name="rating" id="rating" />
+                </label>
 
-              <label>
-                Link:
-                <input type="text" name="link" id="link" />
-              </label>
+                <label>
+                  Link:
+                  <input type="text" name="link" id="link" />
+                </label>
 
-              <input type="submit" value="Add Rating" />
-            </form>
-          </div>
+                <input type="submit" value="Add Rating" />
+              </form>
+            </div>
+          )}
         </>
       )}
 
