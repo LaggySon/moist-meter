@@ -13,5 +13,11 @@ export default NextAuth({
       clientSecret: process.env.DISCORD_SECRET,
     }),
   ],
+  callbacks: {
+    async session({ session, token, user }) {
+      session.user.role = user.role;
+      return session;
+    },
+  },
   secret: process.env.NEXTAUTH_SECRET,
 });
