@@ -6,8 +6,13 @@ import prisma from "../lib/prisma";
 
 import Link from "next/link";
 
+import { useSession, signIn, signOut } from "next-auth/react";
+
 export default function Home({ initialRatings }) {
   const [ratings, setRatings] = useState(initialRatings);
+
+  const { data: session } = useSession();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const name = e.target.elements.name.value;
@@ -41,6 +46,16 @@ export default function Home({ initialRatings }) {
 
   return (
     <div>
+      {!session && (
+        <div>
+          not signed in <button onClick={() => signIn()}>Sign In</button>
+        </div>
+      )}
+      {session && (
+        <div>
+          signed in <button onClick={() => signOut()}>Sign Out</button>
+        </div>
+      )}
       <div className={styles.inputForm}>
         <div className={styles.count}>Meters Created: {ratings.length}</div>
         <form action="#" method="POST" onSubmit={(e) => handleSubmit(e)}>
