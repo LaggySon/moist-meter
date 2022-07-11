@@ -52,36 +52,39 @@ export default function Home({ initialRatings }) {
         </div>
       )}
       {session && (
-        <div>
-          signed in <button onClick={() => signOut()}>Sign Out</button>
-        </div>
+        <>
+          <div>
+            signed in <button onClick={() => signOut()}>Sign Out</button>
+          </div>
+          <div className={styles.inputForm}>
+            <div className={styles.count}>Meters Created: {ratings.length}</div>
+            <form action="#" method="POST" onSubmit={(e) => handleSubmit(e)}>
+              <label>
+                Name:
+                <input type="text" name="name" id="name" />
+              </label>
+
+              <label>
+                Category:
+                <input type="text" name="category" id="category" />
+              </label>
+
+              <label>
+                Rating:
+                <input type="number" name="rating" id="rating" />
+              </label>
+
+              <label>
+                Link:
+                <input type="text" name="link" id="link" />
+              </label>
+
+              <input type="submit" value="Add Rating" />
+            </form>
+          </div>
+        </>
       )}
-      <div className={styles.inputForm}>
-        <div className={styles.count}>Meters Created: {ratings.length}</div>
-        <form action="#" method="POST" onSubmit={(e) => handleSubmit(e)}>
-          <label>
-            Name:
-            <input type="text" name="name" id="name" />
-          </label>
 
-          <label>
-            Category:
-            <input type="text" name="category" id="category" />
-          </label>
-
-          <label>
-            Rating:
-            <input type="number" name="rating" id="rating" />
-          </label>
-
-          <label>
-            Link:
-            <input type="text" name="link" id="link" />
-          </label>
-
-          <input type="submit" value="Add Rating" />
-        </form>
-      </div>
       <div className={styles.ratingBox}>
         <div className={styles.header + " " + styles.rating}>
           <div>name</div>
