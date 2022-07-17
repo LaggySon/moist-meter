@@ -1,6 +1,6 @@
 .inputForm {
   text-align: center;
-
+  color: var(--textcolor);
   form label {
     margin-right: 1rem;
   }
@@ -8,7 +8,6 @@
 
 .ratingBox {
   // display: grid;
-  color: var(--textcolor);
   .rating {
     &.header {
       border-block: 2px solid var(--textcolor);

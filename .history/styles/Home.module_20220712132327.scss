@@ -1,3 +1,10 @@
+:root {
+  $bgcolor: white;
+  $textcolor: black;
+
+  background-color: $bgcolor;
+}
+
 .inputForm {
   text-align: center;
 
@@ -8,15 +15,14 @@
 
 .ratingBox {
   // display: grid;
-  color: var(--textcolor);
   .rating {
     &.header {
-      border-block: 2px solid var(--textcolor);
+      border-block: 2px solid black;
       text-transform: uppercase;
     }
     div {
-      border-right: 1px solid var(--textcolor);
-      border-bottom: 1px solid var(--textcolor);
+      border-right: 1px solid black;
+      border-bottom: 1px solid black;
       height: 100%;
       margin-block: auto;
     }
