@@ -1,17 +1,12 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import prisma from "../../lib/prisma.js";
 import { builtinModules } from "module";
-import { getSession } from "next-auth/client";
 // import { authOptions } from "./api/auth/[...nextauth]";
 
 export default async function handler(req, res) {
-  const session = await getSession({ req });
-
   if (req.method == "POST") {
-    if (!session)
-      return res.status(403).json({ error: "Unauthorized", success: false });
     console.log(req.body);
-    return await createRating(req, res, session);
+    return await createRating(req, res);
   } else if (req.method == "GET") {
     return await getRatings(req, res);
   } else {

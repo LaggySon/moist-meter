@@ -1,5 +1,6 @@
 .inputForm {
   text-align: center;
+  background-color: lightblue;
 
   form label {
     margin-right: 1rem;
@@ -13,6 +14,10 @@
     &.header {
       border-block: 2px solid var(--textcolor);
       text-transform: uppercase;
+      div:hover {
+        cursor: pointer;
+        background-color: lightgray;
+      }
     }
     div {
       border-right: 1px solid var(--textcolor);
