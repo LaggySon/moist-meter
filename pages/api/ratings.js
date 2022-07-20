@@ -9,9 +9,7 @@ export default async function handler(req, res) {
 
   if (req.method == "POST") {
     if (!session)
-      return res
-        .status(500)
-        .json({ error: "Error getting ratings", success: false });
+      return res.status(403).json({ error: "Unauthorized", success: false });
     console.log(req.body);
     return await createRating(req, res, session);
   } else if (req.method == "GET") {
