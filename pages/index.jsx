@@ -107,17 +107,37 @@ export default function Home({ initialRatings }) {
           <div
             onClick={() => {
               if (sortType === "categoryAsc") {
-                setRatings(ratings.sort((a, b) => (a.name < b.name ? 1 : -1)));
+                setRatings(
+                  ratings.sort((a, b) => (a.category < b.category ? 1 : -1))
+                );
                 setSortType("categoryDesc");
               } else {
-                setRatings(ratings.sort((a, b) => (a.name > b.name ? 1 : -1)));
+                setRatings(
+                  ratings.sort((a, b) => (a.category > b.category ? 1 : -1))
+                );
                 setSortType("categoryAsc");
               }
             }}
           >
             category
           </div>
-          <div>rating</div>
+          <div
+            onClick={() => {
+              if (sortType === "ratingAsc") {
+                setRatings(
+                  ratings.sort((a, b) => (a.rating < b.rating ? 1 : -1))
+                );
+                setSortType("ratingDesc");
+              } else {
+                setRatings(
+                  ratings.sort((a, b) => (a.rating > b.rating ? 1 : -1))
+                );
+                setSortType("ratingAsc");
+              }
+            }}
+          >
+            rating
+          </div>
           <div>link</div>
         </div>
         {ratings.map((rating) => (

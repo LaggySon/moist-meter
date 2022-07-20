@@ -5,9 +5,13 @@ import { unstable_getServerSession } from "next-auth";
 // import { authOptions } from "./api/auth/[...nextauth]";
 
 export default async function handler(req, res) {
-  const session = await unstable_getServerSession(req, res);
+  const session = await getServerSession(req, res);
 
   if (req.method == "POST") {
+    if (!session)
+      return res
+        .status(500)
+        .json({ error: "Error getting ratings", success: false });
     console.log(req.body);
     return await createRating(req, res, session);
   } else if (req.method == "GET") {
