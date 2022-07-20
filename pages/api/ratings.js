@@ -5,7 +5,7 @@ import { getServerSession } from "next-auth";
 // import { authOptions } from "./api/auth/[...nextauth]";
 
 export default async function handler(req, res) {
-  const session = await getServerSession(req, res);
+  const session = await getSession({ req });
 
   if (req.method == "POST") {
     if (!session)
