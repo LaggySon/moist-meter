@@ -10,6 +10,7 @@ import { useSession, signIn, signOut } from "next-auth/react";
 
 export default function Home({ initialRatings }) {
   const [ratings, setRatings] = useState(initialRatings);
+  const [sortType, setSortType] = useState("nameAsc");
 
   const { data: session } = useSession();
 
@@ -43,6 +44,8 @@ export default function Home({ initialRatings }) {
       console.log("there was an error submitting", error);
     }
   };
+
+  function reOrder(orderMethod) {}
 
   return (
     <div>
@@ -88,8 +91,32 @@ export default function Home({ initialRatings }) {
 
       <div className={styles.ratingBox}>
         <div className={styles.header + " " + styles.rating}>
-          <div>name</div>
-          <div>category</div>
+          <div
+            onClick={() => {
+              if (sortType === "nameAsc") {
+                setRatings(ratings.sort((a, b) => (a.name < b.name ? 1 : -1)));
+                setSortType("nameDesc");
+              } else {
+                setRatings(ratings.sort((a, b) => (a.name > b.name ? 1 : -1)));
+                setSortType("nameAsc");
+              }
+            }}
+          >
+            name
+          </div>
+          <div
+            onClick={() => {
+              if (sortType === "categoryAsc") {
+                setRatings(ratings.sort((a, b) => (a.name < b.name ? 1 : -1)));
+                setSortType("categoryDesc");
+              } else {
+                setRatings(ratings.sort((a, b) => (a.name > b.name ? 1 : -1)));
+                setSortType("categoryAsc");
+              }
+            }}
+          >
+            category
+          </div>
           <div>rating</div>
           <div>link</div>
         </div>
