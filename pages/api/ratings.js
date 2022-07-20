@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import prisma from "../../lib/prisma.js";
 import { builtinModules } from "module";
-import { unstable_getServerSession } from "next-auth";
+import { getServerSession } from "next-auth";
 // import { authOptions } from "./api/auth/[...nextauth]";
 
 export default async function handler(req, res) {
